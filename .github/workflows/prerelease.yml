@@ -1,7 +1,13 @@
 name: Prerelease
 on:
-  workflow_dispatch:
-
+  push:
+    branches:
+      - Alpha
+      - Beta
+  pull_request:
+    branches:
+      - Alpha
+      - Beta
 jobs:
   Build:
     runs-on: ubuntu-latest
@@ -25,13 +31,10 @@ jobs:
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
-
-
       - name: Test
         if: ${{github.ref_name=='Beta'}}
         run: |
           go test ./...
-
       - name: Build
         if: success()
         env:
