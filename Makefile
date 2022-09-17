@@ -114,10 +114,10 @@ windows-386:
 	GOARCH=386 GOOS=windows $(GOBUILD) -o $(BINDIR)/$(NAME)-$@.exe
 
 windows-amd64:
-	GOARCH=amd64 GOOS=linux GOAMD64=v1 $(GOBUILD) -o $(BINDIR)/$(NAME)-$@.exe
+	GOARCH=amd64 GOOS=windows GOAMD64=v1 $(GOBUILD) -o $(BINDIR)/$(NAME)-$@.exe
 
 windows-amd64-compatible:
-	GOARCH=amd64 GOOS=linux GOAMD64=v4 $(GOBUILD) -o $(BINDIR)/$(NAME)-$@.exe
+	GOARCH=amd64 GOOS=windows GOAMD64=v4 $(GOBUILD) -o $(BINDIR)/$(NAME)-$@.exe
 
 windows-arm64:
 	GOARCH=arm64 GOOS=windows $(GOBUILD) -o $(BINDIR)/$(NAME)-$@.exe
